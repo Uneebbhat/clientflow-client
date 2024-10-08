@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 import useLogin from "@/hooks/useLogin";
 import useTogglePassword from "@/hooks/useTogglePassword";
 import { Eye, EyeOff } from "lucide-react";
-import Spinner from "./Spinner";
+import Spinner from "../Spinner";
 
 const LoginForm: FC = () => {
   const { formData, handleInput, handleSubmit, loading } = useLogin();

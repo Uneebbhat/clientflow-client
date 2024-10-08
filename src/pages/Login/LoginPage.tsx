@@ -1,4 +1,4 @@
-import LoginForm from "@/components/LoginForm";
+import LoginForm from "@/components/Auth/LoginForm";
 import useChangeTitle from "@/hooks/useChangeTitle";
 import { FC } from "react";
 

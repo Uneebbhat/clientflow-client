@@ -1,4 +1,4 @@
-import ResetPasswordForm from "@/components/ResetPasswordForm";
+import ResetPasswordForm from "@/components/Auth/ResetPasswordForm";
 import useChangeTitle from "@/hooks/useChangeTitle";
 import { FC } from "react";
 
