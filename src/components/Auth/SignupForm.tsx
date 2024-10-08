@@ -23,7 +23,7 @@ import { Link } from "react-router-dom";
 import useSignup from "@/hooks/useSignup";
 import useTogglePassword from "@/hooks/useTogglePassword";
 import { Eye, EyeOff } from "lucide-react";
-import Spinner from "./Spinner";
+import Spinner from "../Spinner";
 
 const SignupForm: FC = () => {
   const {

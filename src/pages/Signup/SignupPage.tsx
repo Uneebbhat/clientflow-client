@@ -1,4 +1,4 @@
-import SignupForm from "@/components/SignupForm";
+import SignupForm from "@/components/Auth/SignupForm";
 import useChangeTitle from "@/hooks/useChangeTitle";
 import { FC } from "react";
 
