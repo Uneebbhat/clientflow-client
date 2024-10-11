@@ -5,7 +5,7 @@ const HomePage: FC = () => {
   return (
     <>
       <MainLayout>
-        <div className="border-l-2 min-h-screen">
+        <div className="min-h-screen">
           <h1>Dashboard</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
