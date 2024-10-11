@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import { ReactNode } from "react";
 
@@ -9,10 +10,15 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <>
       <div className="flex">
-        <aside className="max-w-full fixed top-p left-0 px-[16px] py-[32px]">
+        <div className="fixed top-0 left-0 px-[24px] py-[32px] h-[100vh] md:border-r-2">
           <Sidebar />
-        </aside>
-        <section className="w-full bg-slate-400 ml-[280px]">{children}</section>
+        </div>
+        <div>
+          <div className="flex md:hidden">
+            <Header />
+          </div>
+          <div className="md:ml-[280px] p-4">{children}</div>
+        </div>
       </div>
     </>
   );
