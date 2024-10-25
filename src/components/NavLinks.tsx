@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import {
   ChartNoAxesGantt,
   ClipboardList,
+  Cylinder,
   KanbanSquare,
   LayoutDashboard,
   MessageSquareMore,
-  PlusCircle,
   Settings,
   Users,
 } from "lucide-react";
@@ -36,7 +36,7 @@ const NavLinks: FC = () => {
     {
       path: "/bucket",
       label: "Bucket",
-      icon: <PlusCircle />,
+      icon: <Cylinder />,
     },
     {
       path: "/chat",
