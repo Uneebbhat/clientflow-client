@@ -10,14 +10,16 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <>
       <div className="flex">
-        <div className="fixed top-0 left-0 px-[24px] py-[32px] h-[100vh] md:border-r-2">
-          <Sidebar />
+        <div className="bg-white border-r-2 md:px-[24px] py-[32px] h-[100vh] relative flex-shrink-0">
+          <div className="sticky top-0">
+            <Sidebar />
+          </div>
         </div>
-        <div>
-          <div className="flex md:hidden">
+        <div className="flex-1 overflow-y-auto h-[100vh]">
+          <div className="block md:hidden">
             <Header />
           </div>
-          <div className="md:ml-[280px] p-4">{children}</div>
+          <div className="px-[16px] md:px-[24px] py-[32px]">{children}</div>
         </div>
       </div>
     </>

@@ -15,7 +15,7 @@ import {
 const Sidebar: FC = () => {
   return (
     <>
-      <div className="hidden md:flex flex-col justify-between h-full">
+      <div className="hidden md:flex flex-col justify-between h-[90vh]">
         <div>
           <div>
             <img src={logo} alt="ClientFlow" />
