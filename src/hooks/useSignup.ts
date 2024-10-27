@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
 
 const useSignup = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const useSignup = () => {
   });
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -32,6 +34,7 @@ const useSignup = () => {
         toast({
           title: "Account created successfully",
         });
+        navigate("/");
       }, 2000);
     } catch (error: any) {
       console.log(error.message);

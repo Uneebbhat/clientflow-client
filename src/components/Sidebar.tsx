@@ -2,13 +2,10 @@ import { FC } from "react";
 import logo from "@/assets/logo.svg";
 import NavLinks from "@/components/NavLinks";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { LogOut } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -24,9 +21,9 @@ const Sidebar: FC = () => {
             <NavLinks />
           </div>
         </div>
-        <div className="w-full flex items-center gap-2">
+        <div className="w-full flex items-center gap-2 bg-lightgray-500 px-2 py-2 rounded-full">
           <DropdownMenu>
-            <DropdownMenuTrigger className="w-full flex items-start gap-2">
+            <DropdownMenuTrigger className="flex items-center gap-2">
               <div>
                 <Avatar>
                   <AvatarImage src="https://github.com/shadcn.png" />
@@ -34,25 +31,15 @@ const Sidebar: FC = () => {
                 </Avatar>
               </div>
               <div className="text-left">
-                <h2 className="font-semibold">Uneeb Bhatti</h2>
-                <p className="text-[14px]">uneebbhatti3@gmail.com</p>
+                <h2 className="font-semibold text-[16px]">Uneeb Bhatti</h2>
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-              <DropdownMenuLabel>Uneeb Bhatti</DropdownMenuLabel>
-              <DropdownMenuLabel className="text-lightgray-900">
-                uneebbhatti3@gmail.com
-              </DropdownMenuLabel>
-              <DropdownMenuSeparator />
               <DropdownMenuItem>Profile</DropdownMenuItem>
               <DropdownMenuItem>Settings</DropdownMenuItem>
               <DropdownMenuItem>Logout</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-
-          <div className="cursor-pointer">
-            <LogOut size={20} color="red" />
-          </div>
         </div>
       </div>
     </>

@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import {
+  Banknote,
   BellRing,
   ChartNoAxesGantt,
-  ClipboardList,
   Cylinder,
   KanbanSquare,
   LayoutDashboard,
@@ -50,9 +50,9 @@ const NavLinks: FC = () => {
       icon: <MessageSquareMore />,
     },
     {
-      path: "/launchpad",
-      label: "Launchpad",
-      icon: <ClipboardList />,
+      path: "/cash-flow",
+      label: "Cash Flow",
+      icon: <Banknote />,
     },
     {
       path: "/settings",
