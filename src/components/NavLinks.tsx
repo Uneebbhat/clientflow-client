@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import {
+  BellRing,
   ChartNoAxesGantt,
   ClipboardList,
   Cylinder,
@@ -32,6 +33,11 @@ const NavLinks: FC = () => {
       path: "/manage-clients",
       label: "Manage Clients",
       icon: <ChartNoAxesGantt />,
+    },
+    {
+      path: "/notifications",
+      label: "Notifications",
+      icon: <BellRing />,
     },
     {
       path: "/bucket",

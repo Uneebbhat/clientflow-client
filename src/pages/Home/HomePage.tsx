@@ -5,6 +5,7 @@ import HomeCard from "@/components/Home/HomeCard";
 import SaleProfitChart from "@/components/Home/SaleProfitChart";
 import UsersTable from "@/components/Home/UsersTable";
 import DeadlinesTable from "@/components/Home/DeadlinesTable";
+import NotificationsPanel from "@/components/Home/NotificationsPanel";
 
 const HomePage: FC = () => {
   return (
@@ -18,10 +19,13 @@ const HomePage: FC = () => {
             <SaleProfitChart />
           </section>
           <section className="mb-[24px]">
-            <UsersTable />
+            <NotificationsPanel />
           </section>
-          <section>
+          <section className="mb-[24px]">
             <DeadlinesTable />
+          </section>
+          <section className="mb-[24px]">
+            <UsersTable />
           </section>
         </PageLayout>
       </MainLayout>
