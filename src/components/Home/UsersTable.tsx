@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import {
   Table,
   TableBody,
@@ -16,6 +16,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import UsersTableEditModal from "./UsersTableEditModal";
 
 type Role = "Admin" | "Member" | "Manager" | "Guest";
 type Status = "Active" | "Inactive";
@@ -47,7 +48,7 @@ const UsersTable: FC = () => {
       name: "Uneeb Bhatti",
       email: "uneebbhatti3@gmail.com",
       role: "Admin" as Role,
-      joinDate: "2023-01-15",
+      joinDate: "Oct 20, 2024",
       status: "Active" as Status,
     },
     {
@@ -55,7 +56,7 @@ const UsersTable: FC = () => {
       name: "Umar",
       email: "umar@gmail.com",
       role: "Manager" as Role,
-      joinDate: "2023-02-20",
+      joinDate: "Oct 25, 2024",
       status: "Active" as Status,
     },
     {
@@ -63,7 +64,7 @@ const UsersTable: FC = () => {
       name: "Zubair",
       email: "zubair@gmail.com",
       role: "Member" as Role,
-      joinDate: "2023-02-20",
+      joinDate: "Oct 26, 2024",
       status: "Active" as Status,
     },
     // New users added
@@ -72,7 +73,7 @@ const UsersTable: FC = () => {
       name: "Aisha",
       email: "aisha@gmail.com",
       role: "Member" as Role,
-      joinDate: "2023-03-15",
+      joinDate: "Oct 27, 2024",
       status: "Inactive" as Status,
     },
     {
@@ -80,79 +81,88 @@ const UsersTable: FC = () => {
       name: "Ali",
       email: "ali@gmail.com",
       role: "Guest" as Role,
-      joinDate: "2023-04-10",
+      joinDate: "Oct 28, 2024",
       status: "Active" as Status,
     },
   ];
+  const [editModal, setEditModal] = useState(false);
+  const handleToggleModal = () => {
+    setEditModal(!editModal);
+  };
 
   return (
-    <Table>
-      <TableCaption>See all of your team members</TableCaption>
-      <TableHeader>
-        <TableRow>
-          <TableHead className="w-[100px]">#</TableHead>
-          <TableHead>Name</TableHead>
-          <TableHead>Email</TableHead>
-          <TableHead>Role</TableHead>
-          <TableHead>Join Date</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead className="w-[50px]"></TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {users.map((user) => (
-          <TableRow key={user.id}>
-            <TableCell className="font-medium">{user.id}</TableCell>
-            <TableCell className="flex items-center gap-2">
-              <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-              {user.name}
-            </TableCell>
-            <TableCell>{user.email}</TableCell>
-            <TableCell>
-              <span
-                className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ${getRoleStyle(
-                  user.role
-                )}`}
-              >
-                {user.role}
-              </span>
-            </TableCell>
-            <TableCell>{user.joinDate}</TableCell>
-            <TableCell>
-              <div className="flex items-center">
+    <>
+      <Table>
+        <TableCaption>See all of your team members</TableCaption>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[100px]">#</TableHead>
+            <TableHead>Name</TableHead>
+            <TableHead>Email</TableHead>
+            <TableHead>Role</TableHead>
+            <TableHead>Join Date</TableHead>
+            <TableHead>Status</TableHead>
+            <TableHead className="w-[50px]"></TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {users.map((user) => (
+            <TableRow key={user.id}>
+              <TableCell className="font-medium">{user.id}</TableCell>
+              <TableCell className="flex items-center gap-2">
+                <Avatar>
+                  <AvatarImage src="https://github.com/shadcn.png" />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                {user.name}
+              </TableCell>
+              <TableCell>{user.email}</TableCell>
+              <TableCell>
                 <span
-                  className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ${getStatusStyle(
-                    user.status
+                  className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ${getRoleStyle(
+                    user.role
                   )}`}
                 >
-                  <div
-                    className={`h-2 w-2 rounded-full ${
-                      user.status === "Active" ? "bg-green-600" : "bg-red-600"
-                    } mr-1`}
-                  ></div>
-                  {user.status}
+                  {user.role}
                 </span>
-              </div>
-            </TableCell>
-            <TableCell className="cursor-pointer">
-              <DropdownMenu>
-                <DropdownMenuTrigger>
-                  <DotsVerticalIcon />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuItem>Edit</DropdownMenuItem>
-                  <DropdownMenuItem>Delete</DropdownMenuItem>
-                  <DropdownMenuItem>View Profile</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+              </TableCell>
+              <TableCell>{user.joinDate}</TableCell>
+              <TableCell>
+                <div className="flex items-center">
+                  <span
+                    className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ${getStatusStyle(
+                      user.status
+                    )}`}
+                  >
+                    <div
+                      className={`h-2 w-2 rounded-full ${
+                        user.status === "Active" ? "bg-green-600" : "bg-red-600"
+                      } mr-1`}
+                    ></div>
+                    {user.status}
+                  </span>
+                </div>
+              </TableCell>
+              <TableCell className="cursor-pointer">
+                <DropdownMenu>
+                  <DropdownMenuTrigger>
+                    <DotsVerticalIcon />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuItem onClick={handleToggleModal}>
+                      Edit
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>Delete</DropdownMenuItem>
+                    <DropdownMenuItem>View Profile</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+      {editModal && <UsersTableEditModal onClose={handleToggleModal} />}
+    </>
   );
 };
 
