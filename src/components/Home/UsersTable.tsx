@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import {
   Table,
   TableBody,
@@ -17,6 +17,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import UsersTableEditModal from "./UsersTableEditModal";
+import useToggleModal from "@/utils/useToggleModal";
 
 type Role = "Admin" | "Member" | "Manager" | "Guest";
 type Status = "Active" | "Inactive";
@@ -85,10 +86,7 @@ const UsersTable: FC = () => {
       status: "Active" as Status,
     },
   ];
-  const [editModal, setEditModal] = useState(false);
-  const handleToggleModal = () => {
-    setEditModal(!editModal);
-  };
+  const { openModal, handleToggleModal } = useToggleModal();
 
   return (
     <>
@@ -161,7 +159,7 @@ const UsersTable: FC = () => {
           ))}
         </TableBody>
       </Table>
-      {editModal && <UsersTableEditModal onClose={handleToggleModal} />}
+      {openModal && <UsersTableEditModal onClose={handleToggleModal} />}
     </>
   );
 };
