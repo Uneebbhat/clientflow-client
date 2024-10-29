@@ -1,5 +1,5 @@
 import ForgotPasswordForm from "@/components/Auth/ForgotPasswordForm";
-import useChangeTitle from "@/hooks/useChangeTitle";
+import useChangeTitle from "@/utils/useChangeTitle";
 import { FC } from "react";
 
 const ForgotPasswordPage: FC = () => {

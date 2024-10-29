@@ -1,5 +1,5 @@
 import SignupForm from "@/components/Auth/SignupForm";
-import useChangeTitle from "@/hooks/useChangeTitle";
+import useChangeTitle from "@/utils/useChangeTitle";
 import { FC } from "react";
 
 const SignupPage: FC = () => {

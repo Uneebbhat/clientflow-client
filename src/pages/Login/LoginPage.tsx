@@ -1,5 +1,5 @@
 import LoginForm from "@/components/Auth/LoginForm";
-import useChangeTitle from "@/hooks/useChangeTitle";
+import useChangeTitle from "@/utils/useChangeTitle";
 import { FC } from "react";
 
 const LoginPage: FC = () => {

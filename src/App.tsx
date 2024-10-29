@@ -6,6 +6,8 @@ import NotFoundPage from "@/pages/NotFound/NotFoundPage";
 import LoginPage from "@/pages/Login/LoginPage";
 import ForgotPasswordPage from "@/pages/ForgotPassword/ForgotPasswordPage";
 import ResetPasswordPage from "@/pages/ResetPassword/ResetPasswordPage";
+import PipelinesPage from "@/pages/Pipelines/PipelinesPage";
+import PipelinesDetailPage from "@/pages/Pipelines/PipelinesDetail/PipelinesDetailPage";
 
 function App() {
   return (
@@ -13,6 +15,11 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/pipelines" element={<PipelinesPage />} />
+          <Route
+            path="/pipelines/:companyName"
+            element={<PipelinesDetailPage />}
+          />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />

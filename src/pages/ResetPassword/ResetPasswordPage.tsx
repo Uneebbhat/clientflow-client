@@ -1,5 +1,5 @@
 import ResetPasswordForm from "@/components/Auth/ResetPasswordForm";
-import useChangeTitle from "@/hooks/useChangeTitle";
+import useChangeTitle from "@/utils/useChangeTitle";
 import { FC } from "react";
 
 const ResetPasswordPage: FC = () => {

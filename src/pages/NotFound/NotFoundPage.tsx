@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import logo from "@/assets/logo.svg";
-import useChangeTitle from "@/hooks/useChangeTitle";
+import useChangeTitle from "@/utils/useChangeTitle";
 
 const NotFoundPage: FC = () => {
   const navigate = useNavigate();
